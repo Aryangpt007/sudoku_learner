@@ -1,0 +1,19 @@
+# Sudoku Learning Application Requirements
+# Python 3.7+
+
+# Standard library modules used:
+# - tkinter (usually included with Python)
+# - json
+# - random
+# - copy
+# - typing
+# - threading
+# - time
+# - itertools
+
+# No external dependencies required!
+# The application uses only Python standard library.
+
+# For development/testing (optional):
+# pytest>=7.0.0
+# pytest-cov>=4.0.0
