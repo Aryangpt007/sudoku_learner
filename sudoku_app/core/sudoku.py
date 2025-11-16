@@ -9,12 +9,13 @@ from typing import List, Set, Tuple, Optional
 class Sudoku:
     """Represents a Sudoku puzzle with validation and helper methods"""
 
-    def __init__(self, grid: Optional[List[List[int]]] = None):
+    def __init__(self, grid: Optional[List[List[int]]] = None, track_history: bool = True):
         """
         Initialize a Sudoku puzzle
 
         Args:
             grid: 9x9 grid where 0 represents empty cells
+            track_history: Whether to track move history for undo/redo
         """
         if grid is None:
             self.grid = [[0 for _ in range(9)] for _ in range(9)]
@@ -31,6 +32,10 @@ class Sudoku:
         # Pencil marks for each cell (candidates)
         self.pencil_marks = [[set(range(1, 10)) if self.grid[r][c] == 0 else set()
                               for c in range(9)] for r in range(9)]
+
+        # History tracking for undo/redo
+        self.track_history = track_history
+        self.history_manager = None  # Will be set by GUI if needed
 
     def is_valid_move(self, row: int, col: int, num: int) -> bool:
         """Check if placing num at (row, col) is valid"""

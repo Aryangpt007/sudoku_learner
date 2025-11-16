@@ -2,6 +2,31 @@
 
 A comprehensive Sudoku application built in Python with Tkinter, featuring an intelligent solver, puzzle generator, and interactive teaching module.
 
+## 🎉 NEW: Version 1.1 Available!
+
+**Major UX improvements are here!**
+
+✨ **What's New:**
+- **Undo/Redo** - Full undo/redo with Ctrl+Z/Ctrl+Shift+Z (up to 100 moves)
+- **Keyboard Shortcuts** - 30+ shortcuts for everything (Ctrl+N, Ctrl+H, Ctrl+S, etc.)
+- **Visual Pencil Indicator** - Never forget if you're in pencil mode
+- **Settings Dialog** - Customize colors, sizes, confirmations, and more
+- **Play All Steps** - Auto-play through solving steps
+- **Better Navigation** - Step counter and improved controls
+
+**Quick Start v1.1:**
+```bash
+python main_v11.py
+```
+
+**Or use v1.0:**
+```bash
+python main.py
+```
+
+📖 **Full v1.1 Documentation:** See [V1.1_FEATURES.md](V1.1_FEATURES.md) for complete guide!
+📋 **Changelog:** See [CHANGELOG.md](CHANGELOG.md) for all changes!
+
 ## Features
 
 ### 1. Five Difficulty Levels

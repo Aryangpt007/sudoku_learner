@@ -148,12 +148,27 @@ class SudokuGrid(tk.Frame):
                 # Toggle pencil mark
                 if num >= 1 and num <= 9:
                     marks = self.sudoku.get_pencil_marks(row, col)
+                    new_marks = marks.copy()
+
+                    if num in new_marks:
+                        new_marks.discard(num)
+                    else:
+                        new_marks.add(num)
+
+                    # Record move for undo/redo
+                    self._record_pencil_mark_move(row, col, marks, new_marks)
+
                     self.sudoku.set_pencil_mark(row, col, num, num not in marks)
                     self.update_cell(row, col)
             else:
                 # Set cell value
                 if num == 0 or (num >= 1 and num <= 9):
+                    old_value = self.sudoku.get_cell(row, col)
+
                     if self.sudoku.set_cell(row, col, num):
+                        # Record move for undo/redo
+                        self._record_value_move(row, col, old_value, num)
+
                         self.update_all()
                         if self.on_cell_change:
                             self.on_cell_change()
@@ -174,10 +189,37 @@ class SudokuGrid(tk.Frame):
 
         # Delete/Backspace
         elif event.keysym in ['Delete', 'BackSpace']:
+            old_value = self.sudoku.get_cell(row, col)
+
             if self.sudoku.set_cell(row, col, 0):
+                # Record move for undo/redo
+                self._record_value_move(row, col, old_value, 0)
+
                 self.update_all()
                 if self.on_cell_change:
                     self.on_cell_change()
+
+        # Space to toggle pencil mode (if callback provided)
+        elif event.keysym == 'space':
+            # Let parent handle this
+            pass
+
+    def _record_value_move(self, row: int, col: int, old_value: int, new_value: int):
+        """Record a value change for undo/redo"""
+        if hasattr(self.sudoku, 'history_manager') and self.sudoku.history_manager:
+            from ..core.history import Move, MoveType
+            old_marks = self.sudoku.pencil_marks[row][col].copy()
+            new_marks = set() if new_value != 0 else old_marks
+            move = Move(MoveType.SET_VALUE, row, col, old_value, new_value, old_marks, new_marks)
+            self.sudoku.history_manager.add_move(move)
+
+    def _record_pencil_mark_move(self, row: int, col: int, old_marks: set, new_marks: set):
+        """Record a pencil mark change for undo/redo"""
+        if hasattr(self.sudoku, 'history_manager') and self.sudoku.history_manager:
+            from ..core.history import Move, MoveType
+            value = self.sudoku.get_cell(row, col)
+            move = Move(MoveType.SET_PENCIL_MARK, row, col, value, value, old_marks, new_marks)
+            self.sudoku.history_manager.add_move(move)
 
     def select_cell(self, row: int, col: int):
         """Select a cell"""
