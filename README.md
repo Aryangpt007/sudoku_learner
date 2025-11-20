@@ -152,25 +152,55 @@ chmod +x main.py
 
 ```
 sudoku_learner/
-├── main.py                 # Application entry point
-├── requirements.txt        # Dependencies (none needed!)
-├── README.md              # This file
-└── sudoku_app/            # Main package
+├── main.py                 # Application entry point (v1.0)
+├── main_v11.py             # Application entry point (v1.1)
+├── README.md               # This file
+├── CHANGELOG.md            # Version history
+├── TESTING.md              # Test results and bug fixes
+├── FUTURE_PLANS.md         # Roadmap
+├── V1.1_FEATURES.md        # v1.1 documentation
+├── QUICK_START_V1.1.md     # Quick start guide
+├── tests/                  # Test suite
+│   ├── comprehensive_test.py    # Full test suite (30 tests)
+│   ├── test_solver_thorough.py  # Solver verification
+│   ├── test_gui_solving.py      # GUI behavior tests
+│   └── test_core.py             # Core unit tests
+└── sudoku_app/             # Main package
     ├── __init__.py
-    ├── core/              # Core logic
+    ├── core/               # Core logic
     │   ├── __init__.py
-    │   ├── sudoku.py      # Sudoku data structure and validation
-    │   ├── solver.py      # AI solver with multiple techniques
-    │   └── generator.py   # Puzzle generator with difficulty levels
-    ├── gui/               # User interface
+    │   ├── sudoku.py       # Sudoku data structure and validation
+    │   ├── solver.py       # AI solver with multiple techniques
+    │   ├── generator.py    # Puzzle generator with difficulty levels
+    │   └── history.py      # Undo/redo management (v1.1)
+    ├── gui/                # User interface
     │   ├── __init__.py
-    │   ├── main_window.py # Main application window
-    │   ├── grid.py        # Interactive Sudoku grid widget
-    │   └── teaching.py    # Teaching module window
-    └── utils/             # Utilities
+    │   ├── main_window.py     # Main application window (v1.0)
+    │   ├── main_window_v11.py # Main application window (v1.1)
+    │   ├── grid.py            # Interactive Sudoku grid widget
+    │   ├── teaching.py        # Teaching module window
+    │   └── settings.py        # Settings dialog (v1.1)
+    └── utils/              # Utilities
         ├── __init__.py
-        └── io_handler.py  # Import/export functionality
+        └── io_handler.py   # Import/export functionality
 ```
+
+## Testing
+
+The project includes a comprehensive test suite. See [TESTING.md](TESTING.md) for detailed results.
+
+**Quick Test:**
+```bash
+python tests/comprehensive_test.py          # 30 tests
+python tests/test_solver_thorough.py quick  # Verify solver
+```
+
+**All Tests:**
+- ✅ 30/30 comprehensive tests passing
+- ✅ 100% solver success rate across all difficulties
+- ✅ GUI behavior verified
+
+See [tests/README.md](tests/README.md) for detailed test documentation.
 
 ## Technical Details
 
