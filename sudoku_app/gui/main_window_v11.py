@@ -631,6 +631,10 @@ Grid Navigation:
             return
 
         if self.current_step >= len(self.solving_steps):
+            # Copy the complete solution from solver (in case backtracking filled remaining cells)
+            if hasattr(self, 'solver') and self.solver.sudoku.is_solved():
+                self.sudoku = self.solver.sudoku
+                self.grid_widget.set_sudoku(self.sudoku)
             messagebox.showinfo("Complete", "All steps shown! Puzzle solved.")
             self.stop_timer()
             return
