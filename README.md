@@ -2,9 +2,9 @@
 
 A comprehensive Sudoku application built in Python with Tkinter, featuring an intelligent solver, puzzle generator, and interactive teaching module.
 
-## 🎉 NEW: Version 1.1 Available!
+## 🎉 Version 1.1 - Enhanced Features!
 
-**Major UX improvements are here!**
+**Major UX improvements:**
 
 ✨ **What's New:**
 - **Undo/Redo** - Full undo/redo with Ctrl+Z/Ctrl+Shift+Z (up to 100 moves)
@@ -14,18 +14,13 @@ A comprehensive Sudoku application built in Python with Tkinter, featuring an in
 - **Play All Steps** - Auto-play through solving steps
 - **Better Navigation** - Step counter and improved controls
 
-**Quick Start v1.1:**
-```bash
-python main_v11.py
-```
-
-**Or use v1.0:**
+**Quick Start:**
 ```bash
 python main.py
 ```
 
-📖 **Full v1.1 Documentation:** See [V1.1_FEATURES.md](V1.1_FEATURES.md) for complete guide!
-📋 **Changelog:** See [CHANGELOG.md](CHANGELOG.md) for all changes!
+📖 **Full Documentation:** See [V1.1_FEATURES.md](V1.1_FEATURES.md) for complete guide!
+📋 **Changelog:** See [CHANGELOG.md](CHANGELOG.md) for version history!
 
 ## Features
 
@@ -152,37 +147,36 @@ chmod +x main.py
 
 ```
 sudoku_learner/
-├── main.py                 # Application entry point (v1.0)
-├── main_v11.py             # Application entry point (v1.1)
-├── README.md               # This file
-├── CHANGELOG.md            # Version history
-├── TESTING.md              # Test results and bug fixes
-├── FUTURE_PLANS.md         # Roadmap
-├── V1.1_FEATURES.md        # v1.1 documentation
-├── QUICK_START_V1.1.md     # Quick start guide
-├── tests/                  # Test suite
+├── main.py                      # Application entry point (v1.1)
+├── README.md                    # This file
+├── CHANGELOG.md                 # Version history
+├── TESTING.md                   # Test results and bug fixes
+├── FUTURE_PLANS.md              # Roadmap
+├── V1.1_FEATURES.md             # v1.1 documentation
+├── QUICK_START_V1.1.md          # Quick start guide
+├── tests/                       # Test suite
 │   ├── comprehensive_test.py    # Full test suite (30 tests)
 │   ├── test_solver_thorough.py  # Solver verification
 │   ├── test_gui_solving.py      # GUI behavior tests
 │   └── test_core.py             # Core unit tests
-└── sudoku_app/             # Main package
+└── sudoku_app/                  # Main package
     ├── __init__.py
-    ├── core/               # Core logic
+    ├── core/                    # Core logic
     │   ├── __init__.py
-    │   ├── sudoku.py       # Sudoku data structure and validation
-    │   ├── solver.py       # AI solver with multiple techniques
-    │   ├── generator.py    # Puzzle generator with difficulty levels
-    │   └── history.py      # Undo/redo management (v1.1)
-    ├── gui/                # User interface
+    │   ├── sudoku.py            # Sudoku data structure
+    │   ├── solver.py            # AI solver with 9 techniques
+    │   ├── generator.py         # Puzzle generator
+    │   └── history.py           # Undo/redo management
+    ├── gui/                     # User interface
     │   ├── __init__.py
-    │   ├── main_window.py     # Main application window (v1.0)
-    │   ├── main_window_v11.py # Main application window (v1.1)
-    │   ├── grid.py            # Interactive Sudoku grid widget
-    │   ├── teaching.py        # Teaching module window
-    │   └── settings.py        # Settings dialog (v1.1)
-    └── utils/              # Utilities
+    │   ├── main_window.py       # Basic GUI (v1.0)
+    │   ├── main_window_v11.py   # Enhanced GUI (v1.1, default)
+    │   ├── grid.py              # Interactive Sudoku grid
+    │   ├── teaching.py          # Teaching module
+    │   └── settings.py          # Settings dialog
+    └── utils/                   # Utilities
         ├── __init__.py
-        └── io_handler.py   # Import/export functionality
+        └── io_handler.py        # Import/export
 ```
 
 ## Testing
